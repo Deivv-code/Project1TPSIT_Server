@@ -14,14 +14,22 @@ public class ServerStr {
     BufferedReader input;
     DataOutputStream output;
 
-
+    public ServerStr()
+    {
+        try {
+         server = new ServerSocket(7073);
+         System.out.println("------1 Server start execution------");
+     } catch (IOException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+     }
+    }
 public Socket waiting()
 {
     try{
-        System.out.println("1 Server start execution");
-        server = new ServerSocket(7073);
+        
         client = server.accept();
-        server.close();
+        
         input = new BufferedReader(new InputStreamReader(client.getInputStream()));
         output = new DataOutputStream(client.getOutputStream());
     }
