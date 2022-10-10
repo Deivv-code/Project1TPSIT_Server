@@ -1,4 +1,4 @@
-package it.fi.meucci;
+package main.java.it.fi.meucci;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;

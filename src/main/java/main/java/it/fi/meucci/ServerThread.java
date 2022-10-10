@@ -41,7 +41,7 @@ public class ServerThread extends Thread {
             }
             else
             {
-                output.writeBytes(received + "recived"+ '\n');
+                output.writeBytes("recived: "+ received + '\n');
                 System.out.println("Echo on server:" + received);
 
             }

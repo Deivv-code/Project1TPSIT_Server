@@ -1,7 +1,7 @@
+package main.java.it.fi.meucci;
+
 import java.net.ServerSocket;
 import java.net.Socket;
-
-import main.java.it.fi.meucci.ServerThread;
 
 public class MultiServer {
     public void Beginning()
