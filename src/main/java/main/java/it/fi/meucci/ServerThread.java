@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerThread extends Thread {
     ServerSocket server = null;
@@ -13,14 +14,18 @@ public class ServerThread extends Thread {
     String modified = null;
     BufferedReader input;
     DataOutputStream output;
+ 
 
     public ServerThread (Socket socket)
     {
         this.client = socket;
+       
+        
     }
 
     public void run()
-    {   try {
+    {    
+         try {
             comunicate();
         } catch (Exception e) {
         // TODO: handle exception
@@ -33,12 +38,19 @@ public class ServerThread extends Thread {
         for(;;)
         {
             received = input.readLine();
-            if(received == null || received.equals("FINE"))
+            if(received == null || received.equals("END"))
             {
                 output.writeBytes(received + "server closing..." + '\n');
                 System.out.println("Echo on server closing: "+ received);
                 break;
             }
+            else if(received.equals("POWER OFF"))
+            {
+                MultiServer.poweroff();
+                server.close();
+                break;
+            }
+            
             else
             {
                 output.writeBytes("recived: "+ received + '\n');

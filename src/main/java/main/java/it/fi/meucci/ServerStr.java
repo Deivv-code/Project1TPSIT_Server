@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerStr extends Thread{
     ServerSocket server = null;
@@ -14,11 +15,14 @@ public class ServerStr extends Thread{
     String modified = null;
     BufferedReader input;
     DataOutputStream output;
+    
 
     public ServerStr()
     {
+        
         try {
          server = new ServerSocket(7073);
+        
          System.out.println("------1 Server start execution------");
      } catch (IOException e) {
          // TODO Auto-generated catch block
